@@ -19,7 +19,9 @@ export class ProductListComponent implements OnInit{
 
     }
 
-    var ourList = this.productSerice.GetProductList();
+    var ourList = this.productSerice.GetProductList().subscribe(p=>{
+      
+    });
   }
 
 
