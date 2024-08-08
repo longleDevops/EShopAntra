@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Login,LoginResponse } from '../../shared/models/login';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,8 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
 
+  loginUrl:string = 'http://localhost:5126'+'/api/Authentication/login'
   Login(LoginData: Login):Observable<LoginResponse> {
-    return this.httpClient.post<LoginResponse>("urlhere",LoginData);
+    return this.httpClient.post<LoginResponse>(this.loginUrl,LoginData);
   }
 }

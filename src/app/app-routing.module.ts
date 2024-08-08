@@ -5,9 +5,10 @@ import { ProductDetailsComponent } from './public/product-details/product-detail
 import { OrdersComponent } from './public/orders/orders.component';
 import { LoginComponent } from './account/login/login.component';
 import { ProductListFormComponent } from './public/product-list-form/product-list-form.component';
+import { HomePageComponent } from './public/home-page/home-page.component';
 
 const routes: Routes = [
-  {path:"", component:LoginComponent},
+  {path:"", component:HomePageComponent},
   {path:"ProductForm", component:ProductListFormComponent},
   {path:"Products",component:ProductListComponent},
   {path:"Details/:id", component:ProductDetailsComponent},

@@ -12,7 +12,7 @@ import { Login, LoginResponse } from '../../shared/models/login';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   isLoginSuccessful: boolean = false;
-  loginResponse: LoginResponse = { username: "", jwtToken: "", expiresIn: 0 };
+  loginResponse: LoginResponse = { email: "", jwtToken: "", expiresIn: 0 };
 
   constructor(
     private fb: FormBuilder,
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       const loginData: Login = this.loginForm.value;
       this.accountService.Login(loginData).subscribe(l => {
         this.loginResponse = l;
+        console.log(l)
         if (this.loginResponse.jwtToken !== "" && this.loginResponse.expiresIn > 0) {
           this.isLoginSuccessful = true;
           localStorage.setItem("token", this.loginResponse.jwtToken);

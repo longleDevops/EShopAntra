@@ -11,6 +11,7 @@ import { OrdersComponent } from './public/orders/orders.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductListFormComponent } from './public/product-list-form/product-list-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomePageComponent } from './public/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductListComponent,
     ProductDetailsComponent,
     OrdersComponent,
-    ProductListFormComponent
+    ProductListFormComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
