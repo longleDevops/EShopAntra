@@ -1,15 +1,30 @@
 <div class="container ">
-    <p>product-list works!</p>
+    <p >product-list works!</p>
+    <p class="fs-4 fw-bold">Total Products: {{productList.length}}</p>
     <button [routerLink]="'/ProductForm'" class="btn btn-primary mb-4">
         Create product
     </button>
+
+    <div *ngIf="message" class="alert alert-info">
+        {{ message }}
+      </div>
     <div class="row">
       <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of productList">
         <div class="card mb-4">
           <!-- <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}"> -->
           <div class="card-body">
             <h5 class="card-title">{{ product.id }}</h5>
-            <p class="card-text">${{ product.name }}</p>
+            <p class="card-text fw-bold">{{ product.name }}</p>
+            <p class="card-text">${{ product.price }}</p>
+            <p class="card-text">{{ product.sku }}</p>
+            <p class="card-text">Qty: {{ product.qty }}</p>
+
+
+            <div class="d-flex gap-2"> <!-- Use d-flex for flexbox layout and gap-2 for spacing -->
+                <button class="btn btn-primary w-100" [routerLink]="['/Details',product.id]">View Details</button>
+                <button class="btn btn-danger w-100" (click)="deleteProduct(product.id)">Delete</button>
+              </div>
+
           </div>
         </div>
       </div>

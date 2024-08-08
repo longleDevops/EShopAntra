@@ -3,32 +3,62 @@
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" formControlName="name" class="form-control" />
+          <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)" class="text-danger">
+            <div *ngIf="productForm.get('name')?.hasError('required')">Name is required.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="description">Description</label>
           <textarea id="description" formControlName="description" class="form-control"></textarea>
+          <div *ngIf="productForm.get('description')?.invalid && (productForm.get('description')?.dirty || productForm.get('description')?.touched)" class="text-danger">
+            <div *ngIf="productForm.get('description')?.hasError('required')">Description is required.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="price">Price</label>
           <input type="number" id="price" formControlName="price" class="form-control" />
+          <div *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)" class="text-danger">
+            <div *ngIf="productForm.get('price')?.hasError('required')">Price is required.</div>
+            <div *ngIf="productForm.get('price')?.hasError('min')">Price must be greater than 0.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="qty">Quantity</label>
           <input type="number" id="qty" formControlName="qty" class="form-control" />
+          <div *ngIf="productForm.get('qty')?.invalid && (productForm.get('qty')?.dirty || productForm.get('qty')?.touched)" class="text-danger">
+            <div *ngIf="productForm.get('qty')?.hasError('required')">Quantity is required.</div>
+            <div *ngIf="productForm.get('qty')?.hasError('min')">Quantity must be greater than 0.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="productImg">Product Image URL</label>
           <input type="text" id="productImg" formControlName="productImg" class="form-control" />
+          <div *ngIf="productForm.get('productImg')?.invalid && (productForm.get('productImg')?.dirty || productForm.get('productImg')?.touched)" class="text-danger">
+            <div *ngIf="productForm.get('productImg')?.hasError('required')">Product Image URL is required.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="sku">SKU</label>
           <input type="text" id="sku" formControlName="sku" class="form-control" />
+          <div *ngIf="productForm.get('sku')?.invalid && (productForm.get('sku')?.dirty || productForm.get('sku')?.touched)" class="text-danger">
+            <div *ngIf="productForm.get('sku')?.hasError('required')">SKU is required.</div>
+          </div>
         </div>
         <div class="form-group">
           <label for="productCategoryId">Product Category ID</label>
           <input type="number" id="productCategoryId" formControlName="productCategoryId" class="form-control" />
+          <div *ngIf="productForm.get('productCategoryId')?.invalid && (productForm.get('productCategoryId')?.dirty || productForm.get('productCategoryId')?.touched)" class="text-danger">
+            <div *ngIf="productForm.get('productCategoryId')?.hasError('required')">Product Category ID is required.</div>
+            <div *ngIf="productForm.get('productCategoryId')?.hasError('min')">Product Category ID must be greater than 0.</div>
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary">Create Product</button>
+        <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Create Product</button>
       </form>
 
+      <div *ngIf="formStatus === 'successful'" class="alert alert-success">
+        Product created successfully!
+    </div>
+    <div *ngIf="formStatus === 'failed'" class="alert alert-danger">
+        An error occurred. Please try again.
+    </div>
 </div>

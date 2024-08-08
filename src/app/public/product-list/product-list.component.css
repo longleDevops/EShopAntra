@@ -1,0 +1,6 @@
+.color-square {
+    width: 100%;
+    height: 120px;
+    margin: 0 auto; /* Center the square horizontally */
+    border: 1px solid #000; /* Optional: add a border to make the square more visible */
+}
