@@ -11,7 +11,7 @@ export class AccountService {
 
   constructor(private httpClient: HttpClient) { }
 
-  loginUrl:string = 'http://localhost:5126'+'/api/Authentication/login'
+  loginUrl:string = environment.baseUrl+'/authentication/api/Authentication/login'
   Login(LoginData: Login):Observable<LoginResponse> {
     return this.httpClient.post<LoginResponse>(this.loginUrl,LoginData);
   }

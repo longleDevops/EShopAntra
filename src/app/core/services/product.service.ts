@@ -10,10 +10,10 @@ import { environment } from '../../../environments/environment';
 export class ProductService {
 
   constructor(private httpClient:HttpClient) { }
-  getUrl:string = environment.baseUrl + '/api/Product/GetAllProducts';
-  getByIdUrl:string = environment.baseUrl + '/api/Product/GetProductById';
-  createUrl:string = environment.baseUrl + '/api/Product/CreateProduct';
-  deleteUrl:string = environment.baseUrl + '/api/Product/DeleteProduct';
+  getUrl:string = environment.baseUrl + '/product//api/Product/GetAllProducts';
+  getByIdUrl:string = environment.baseUrl + '/product/api/Product/GetProductById';
+  createUrl:string = environment.baseUrl + '/product/api/Product/CreateProduct';
+  deleteUrl:string = environment.baseUrl + '/product/api/Product/DeleteProduct';
 
   getProductList():Observable<Product[]> {
     return this.httpClient.get<Product[]>(this.getUrl);
