@@ -3,9 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductListComponent } from './public/product-list/product-list.component';
 import { ProductDetailsComponent } from './public/product-details/product-details.component';
 import { OrdersComponent } from './public/orders/orders.component';
+import { LoginComponent } from './account/login/login.component';
+import { ProductListFormComponent } from './public/product-list-form/product-list-form.component';
 
 const routes: Routes = [
-  {path:"", component:ProductListComponent},
+  {path:"", component:LoginComponent},
+  {path:"ProductForm", component:ProductListFormComponent},
+  {path:"Products",component:ProductListComponent},
   {path:"Details/:id", component:ProductDetailsComponent},
   {path:"Orders", component:OrdersComponent},
   {path:"Account", loadChildren: ()=> import('./account/account.module').then(m=>m.AccountModule)}

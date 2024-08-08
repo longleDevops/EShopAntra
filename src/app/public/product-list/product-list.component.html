@@ -1,5 +1,18 @@
-<p>product-list works!</p>
-<div *ngFor="let product of productList">
-    <p>Id: {{product.Id}}</p>
-    <p>Name: {{product.Name}}</p>
-</div>
+<div class="container ">
+    <p>product-list works!</p>
+    <button [routerLink]="'/ProductForm'" class="btn btn-primary mb-4">
+        Create product
+    </button>
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4" *ngFor="let product of productList">
+        <div class="card mb-4">
+          <!-- <img [src]="product.imageUrl" class="card-img-top" alt="{{ product.name }}"> -->
+          <div class="card-body">
+            <h5 class="card-title">{{ product.id }}</h5>
+            <p class="card-text">${{ product.name }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

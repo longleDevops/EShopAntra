@@ -8,19 +8,25 @@ import { SharedModule } from './shared/shared.module';
 import { ProductListComponent } from './public/product-list/product-list.component';
 import { ProductDetailsComponent } from './public/product-details/product-details.component';
 import { OrdersComponent } from './public/orders/orders.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ProductListFormComponent } from './public/product-list-form/product-list-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    OrdersComponent
+    OrdersComponent,
+    ProductListFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    SharedModule
+    SharedModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()

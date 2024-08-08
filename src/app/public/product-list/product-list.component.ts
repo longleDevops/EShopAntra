@@ -7,21 +7,23 @@ import { ProductService } from '../../core/services/product.service';
   templateUrl: './product-list.component.html',
   styleUrl: './product-list.component.css'
 })
-export class ProductListComponent implements OnInit{
+export class ProductListComponent{
 
   constructor(private productSerice: ProductService){}
   
-  productList:Product[] = [];
-  
+  productList: Product[] = []
   ngOnInit(): void {
-    for(let i=0;i<5;i++){
-      this.productList.push({Id:i,Name:"Example"})
-
-    }
-
-    var ourList = this.productSerice.GetProductList().subscribe(p=>{
-      
-    });
+    
+    this.productSerice.getProductList().subscribe(
+      {
+        next: res => {
+          this.productList = res;
+        },
+        error: err =>{
+          console.log(err)
+        }
+      }
+    );
   }
 
 
